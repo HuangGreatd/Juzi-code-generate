@@ -16,19 +16,13 @@ public class MainGenerator {
         // 整个项目的根路径
         File parentFile = new File(projectPath).getParentFile();
         // 输入路径
-        String inputPath = new File(parentFile, "Juzi-gemeration-demo-projects/acm-template").getAbsolutePath();
-        System.out.println("inputPath = " + inputPath);
-
+        String inputPath = new File(parentFile, "../Juzi-generator-demo-projects/acm-template").getAbsolutePath();
         String outputPath = projectPath;
         // 生成静态文件
         StaticGeneration.copyFilesByRecursive(inputPath, outputPath);
-
         // 生成动态文件
-        String inputDynamicFilePath = projectPath  + "\\" + "src\\main\\resources\\templates\\MainTemplate.java.ftl";
-
-        System.out.println("inputDynamicFilePath = " + inputDynamicFilePath);
-        String outputDynamicFilePath = outputPath + "\\acm-template\\src\\com\\juzipi\\acm\\MainTemplate.java";
-        System.out.println("outputDynamicFilePath = " + outputDynamicFilePath);
+        String inputDynamicFilePath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
+        String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/juzipi/acm/MainTemplate.java";
         DynamicGeneration.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
