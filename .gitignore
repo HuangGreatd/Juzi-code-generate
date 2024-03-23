@@ -108,3 +108,5 @@ fabric.properties
 target
 Ju-code-generation.iml
 Juzi-generation-basic.iml
+
+Juzi-generation-mark/generated
