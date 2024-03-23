@@ -30,7 +30,8 @@ public class MeteManage {
     private static Meta initMeta() {
         String s = ResourceUtil.readUtf8Str("meta.json");
         Meta newMeta = JSONUtil.toBean(s, Meta.class);
-        Meta.FileConfig fileConfig = newMeta.getFileConfig();
+        //校验和处理默认值
+        MetaValidator.doValidAndFill(newMeta);
         //校验和处理默认值
         return newMeta;
 
